@@ -155,6 +155,9 @@ app.post('/api/cases/:id/analyse-image', upload.single('image'), asyncRoute(asyn
     suggestions = normaliseSuggestions(parsed.suggestions);
   } catch (err) {
     const status = Number(err.status);
+    console.error('Gemini diagnostic:', err.name, err.status,
+      String(err.message || err)
+        .split(process.env.GEMINI_API_KEY || 'NO_KEY').join('[HIDDEN]'));
     const message = status === 403 ? 'Google denied access to Gemini. Check this API key’s project access and quota tier.'
       : status === 429 ? 'Gemini request limit reached. Please try again later.'
       : status === 404 ? 'The configured Gemini model is unavailable. Check GEMINI_MODEL in your server settings.'
