@@ -1,0 +1,46 @@
+/* Selected RepairLoop SVG; these rules affect branding only. */
+.shell > aside .brand {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 44px;
+  padding: 0;
+}
+.shell > aside .brand img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 210px;
+}
+.hero-art .hero-logo {
+  width: 226px;
+  max-width: calc(100% - 32px);
+  padding: 18px 12px;
+  border-radius: 5px;
+  background: var(--wine);
+}
+.hero-art .hero-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+@media (max-width: 850px) {
+  /* The original SVG stays intact. A narrow viewport shows its icon. */
+  .shell > aside .brand {
+    position: relative;
+    display: block;
+    width: 44px;
+    height: 44px;
+    min-height: 44px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  .shell > aside .brand img {
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 140px;
+    max-width: none;
+    height: auto;
+  }
+}
